@@ -1,0 +1,21 @@
+{
+  "name": "colyseus-schema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "schemaTest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node schemaTest.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@colyseus/schema": "^1.0.34",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182"
+  }
+}
