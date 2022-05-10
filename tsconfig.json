@@ -1,7 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "experimentalDecorators": true,
+    "target": "es2020",
+    "module": "commonjs",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "noEmit": false,
+    "importHelpers": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
-  }
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "node_modules/@types",
+    ],
+  },
 }

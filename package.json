@@ -5,17 +5,18 @@
   "main": "schemaTest.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node schemaTest.ts"
+    "start": "ts-node index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@colyseus/schema": "^1.0.34",
-    "lodash": "^4.17.21",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.3"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182"
+    "@types/lodash": "^4.14.182",
+    "tslib": "^2.4.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   }
 }
