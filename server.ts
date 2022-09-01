@@ -24,6 +24,7 @@ export class Server {
       this.state = new GameState();
       this.state.decode(encodedState);
       this.state = this.state.clone();
+      this.serializer = new Serializer(this.state);
     }
 
     console.log('Server state', this.state.toJSON());
@@ -40,7 +41,7 @@ export class Server {
   }
 
   arrayTest(): void {
-    console.log("----------------- arrayTest -----------------");
+    console.log("============= arrayTest =============");
     this.state.words.push("hey");
     this.saveLoadState();
     this.state.words.push("there");
@@ -48,7 +49,7 @@ export class Server {
   }
 
   mapTest() {
-    console.log("----------------- mapTest -----------------");
+    console.log("============= mapTest =============");
     const player3 = new Player("player3");
     this.state.players.set(player3.userId, player3);
     const player4 = new Player("player4");
@@ -62,12 +63,18 @@ export class Server {
   }
 
   filterTest() {
-    console.log("----------------- filterTest -----------------");
+    console.log("============= filterTest =============");
     this.state.secret = "secretWord for player 1";
     this.state.currentPlayerUserId = "player1";
     this.saveLoadState();
     this.state.secret = "secretWord for player 2";
     this.state.currentPlayerUserId = "player2";
+    this.saveLoadState();
+  }
+
+  smallUpdateTest() {
+    console.log("============= smallUpdateTest =============");
+    this.state.title = "a";
     this.saveLoadState();
   }
 }

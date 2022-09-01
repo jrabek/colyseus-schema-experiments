@@ -10,8 +10,8 @@ export class Client {
   private state: GameState = new GameState();
 
   updateState(update: number[]) {
-    console.log(`Client updateState before (${this.player.userId})`, this.state.toJSON());
+    console.log(`Client updateState (length:${update.length}) before (${this.player.userId})`, this.state.toJSON());
     this.state.decode(update);
-    console.log(`Client updateState after (${this.player.userId})`, this.state.toJSON());
+    console.log(`Client updateState (length:${update.length}) after (${this.player.userId})`, this.state.toJSON());
   }
 }

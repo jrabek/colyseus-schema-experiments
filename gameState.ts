@@ -4,7 +4,7 @@ import { Player } from "./player";
 
 export class GameState extends Schema {
   @type("string")
-  currentPlayerUserId?: String;
+  currentPlayerUserId?: string;
 
   @type({ map: Player })
   players = new MapSchema<Player>();
@@ -17,4 +17,7 @@ export class GameState extends Schema {
   })
   @type("string")
   secret?: string;
+
+  @type("string")
+  title?: string;
 }

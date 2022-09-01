@@ -13,7 +13,6 @@ const clients = players.map(player => new Client(player));
 players.forEach(player => state.players.set(player.userId, player));
 
 function updateClientStates(stateUpdate: number[], userId?: string) {
-  console.log("updateClientStates", userId);
   clients.forEach(client => {
     if (!userId || userId === client.player.userId) {
       client.updateState(stateUpdate);
@@ -21,17 +20,31 @@ function updateClientStates(stateUpdate: number[], userId?: string) {
   });
 }
 
-console.log("----------------- setting initial client state -----------------");
+function updateClientsStates() {
+  const updateMap = server.stateUpdate();
+
+  console.log("--- Updating client state ---");
+
+  updateMap.forEach((stateUpdate, userId) => {
+    updateClientStates(stateUpdate, userId);
+  });
+}
+
+console.log("--- setting initial client state ---");
 updateClientStates(server.initialState());
 
+console.log("--- starting tests ---");
+
 server.arrayTest();
-// server.filterTest();
-// server.mapTest();
+updateClientsStates();
+server.filterTest();
+updateClientsStates();
+server.mapTest();
+updateClientsStates();
 
-const updateMap = server.stateUpdate();
+console.log("--- repeating update (should be empty)---");
+updateClientsStates();
 
-console.log("----------------- updating client state -----------------");
-
-updateMap.forEach((stateUpdate, userId) => {
-  updateClientStates(stateUpdate, userId);
-});
+console.log("--- minor update ---");
+server.smallUpdateTest();
+updateClientsStates();
